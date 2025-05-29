@@ -1,63 +1,73 @@
-API REST de Productos en Node.js (sin Express)
-Este proyecto es una API REST simple construida en Node.js puro (sin frameworks como Express). Permite realizar operaciones CRUD sobre un archivo productos.json.
+# API REST de Productos (Node.js sin Express - Hardcoded)
 
-🗂️ Estructura del Proyecto
-cosimir-una-api/ ├── servidor.js # Punto de entrada del servidor ├── data/ │ └── productos.json # Archivo con los datos de productos ├── controllers/ │ └── productosController.js # Lógica de negocio (CRUD) ├── routes/ │ └── productosRoutes.js # Manejo de rutas y métodos HTTP └── utils/ └── response.js # Función para responder en JSON
+Este proyecto implementa una API REST básica en **Node.js puro** sin utilizar frameworks como Express. Los productos están **hardcodeados en memoria**, por lo que se pierden cuando el servidor se reinicia.
 
-🚀 Cómo ejecutar
-1. Cloná el repositorio
+
+
+## 🧱 Estructura del Proyecto
+
+cosimir-una-api/
+├── servidor.js # Punto de entrada del servidor
+├── controllers/
+│ └── productosController.js # Lógica de los endpoints
+├── routes/
+│ └── productosRoutes.js # Ruteo HTTP
+└── utils/
+└── response.js # Función utilitaria para enviar respuestas JSON
+
+
+
+## 🚀 Cómo ejecutar
+
+1. Cloná este repositorio o descargalo:
+
+```bash
 git clone https://github.com/tu-usuario/nombre-del-repo.git
 cd nombre-del-repo
-2. Asegurate de tener Node.js instalado
-bash
-node -v
-Recomendado: Node.js 18+ o superior
-
-3. Ejecutá el servidor
-bash
+Ejecutá el servidor:
 node servidor.js
-El servidor estará corriendo en http://localhost:3000
-
+El servidor estará corriendo en:
+http://localhost:3000
 📌 Endpoints disponibles
+🔍 Obtener todos los productos
+http
 GET /productos
-Devuelve todos los productos.
-
+🔍 Obtener un producto por ID
+http
 GET /productos/:id
-Devuelve un producto por su ID.
-
+➕ Crear un producto
 POST /productos
-Crea un nuevo producto.
 Body JSON:
 
 json
-
 {
   "nombre": "Ejemplo",
-  "precio": 100
+  "precio": 99.99
 }
+🔄 Reemplazar un producto
+http
 PUT /productos/:id
-Reemplaza completamente un producto.
-Body JSON obligatorio.
+Body completo obligatorio.
 
+🛠️ Actualizar parcialmente un producto
+http
 PATCH /productos/:id
-Actualiza parcialmente un producto.
-Body JSON con campos opcionales.
+Body con campos opcionales.
 
+❌ Eliminar un producto
 DELETE /productos/:id
-Elimina un producto por su ID.
+⚙️ Tecnologías utilizadas
+Node.js (puro)
 
-🧱 Tecnologías usadas
-Node.js (puro, sin frameworks)
+Módulo HTTP nativo
 
-Sistema de archivos (fs)
+JavaScript moderno
 
-Módulo http
-
-JSON como "base de datos"
+Datos hardcodeados (sin base de datos ni archivos)
 
 📄 Licencia
-Este proyecto está bajo la licencia MIT. Podés usarlo, modificarlo y distribuirlo libremente.
+MIT - Libre para usar, modificar y compartir.
 
 ✍️ Autor
 Desarrollado por Ariel Cosimir
-📧 Contacto: [arielalmada861@gmail.com]
+📧 Contacto: arielalmada861@gmail.com
