@@ -1,63 +1,74 @@
-API REST de Productos en Node.js (sin Express)
-Este proyecto es una API REST simple construida en Node.js puro (sin frameworks como Express). Permite realizar operaciones CRUD sobre un archivo productos.json.
+# 📦 API REST de Productos en Node.js (Sin Express)
 
-🗂️ Estructura del Proyecto
-cosimir-una-api/ ├── servidor.js # Punto de entrada del servidor ├── data/ │ └── productos.json # Archivo con los datos de productos ├── controllers/ │ └── productosController.js # Lógica de negocio (CRUD) ├── routes/ │ └── productosRoutes.js # Manejo de rutas y métodos HTTP └── utils/ └── response.js # Función para responder en JSON
+Este proyecto implementa una **API RESTful** utilizando **Node.js puro**, sin frameworks externos como Express. Permite realizar operaciones CRUD (crear, leer, actualizar y eliminar) sobre una lista de productos, que se mantiene **en memoria (hardcoded)** o en archivo según la versión.
 
-🚀 Cómo ejecutar
-1. Cloná el repositorio
+---
+
+## 🗂️ Estructura del Proyecto
+
+cosimir-una-api/
+├── servidor.js # Punto de entrada del servidor
+├── controllers/
+│ └── productosController.js # Lógica de negocio (CRUD)
+├── routes/
+│ └── productosRoutes.js # Definición de rutas y manejo de métodos HTTP
+├── utils/
+│ └── response.js # Función utilitaria para responder en formato JSON
+└── data/
+└── productos.json # (opcional) Archivo de datos si no se usa hardcoding
+
+
+
+> 📌 Si estás usando la versión con hardcoding, podés eliminar la carpeta `data/`.
+
+---
+
+## 🚀 Cómo ejecutar el proyecto
+
+### 1. Clonar el repositorio
+
+```bash
 git clone https://github.com/tu-usuario/nombre-del-repo.git
 cd nombre-del-repo
-2. Asegurate de tener Node.js instalado
-bash
-node -v
-Recomendado: Node.js 18+ o superior
+2. Verificar que Node.js esté instalado
 
-3. Ejecutá el servidor
-bash
+node -v
+Se recomienda usar Node.js v18 o superior
+
+3. Ejecutar el servidor
+
 node servidor.js
-El servidor estará corriendo en http://localhost:3000
+✅ El servidor estará disponible en: http://localhost:3000
 
 📌 Endpoints disponibles
-GET /productos
-Devuelve todos los productos.
+Método	Ruta	Descripción
+GET	/productos	Obtener todos los productos
+GET	/productos/:id	Obtener un producto por su ID
+POST	/productos	Crear un nuevo producto
+PUT	/productos/:id	Reemplazar completamente un producto
+PATCH	/productos/:id	Actualizar parcialmente un producto
+DELETE	/productos/:id	Eliminar un producto por su ID
 
-GET /productos/:id
-Devuelve un producto por su ID.
-
-POST /productos
-Crea un nuevo producto.
-Body JSON:
-
-json
-
+📥 Ejemplo de cuerpo JSON para POST y PUT
 {
   "nombre": "Ejemplo",
   "precio": 100
 }
-PUT /productos/:id
-Reemplaza completamente un producto.
-Body JSON obligatorio.
+🧱 Tecnologías utilizadas
+Node.js (sin Express)
 
-PATCH /productos/:id
-Actualiza parcialmente un producto.
-Body JSON con campos opcionales.
+Módulo http (nativo)
 
-DELETE /productos/:id
-Elimina un producto por su ID.
+Módulo fs (si se usa con archivos)
 
-🧱 Tecnologías usadas
-Node.js (puro, sin frameworks)
+JavaScript moderno (ES6+)
 
-Sistema de archivos (fs)
-
-Módulo http
-
-JSON como "base de datos"
+Estructura modular (rutas, controladores, utilidades)
 
 📄 Licencia
-Este proyecto está bajo la licencia MIT. Podés usarlo, modificarlo y distribuirlo libremente.
+Este proyecto está licenciado bajo la MIT License.
+Podés usarlo, modificarlo y distribuirlo libremente.
 
 ✍️ Autor
 Desarrollado por Ariel Cosimir
-📧 Contacto: [arielalmada861@gmail.com]
+📧 Contacto: arielalmada861@gmail.com
